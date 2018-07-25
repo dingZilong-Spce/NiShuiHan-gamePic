@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <!-- <script src="./js/game.js"></script> -->
+    <script src="./js/jquery-1.12.4.js"></script>
+    <script>
+     $(function () {
+        //  tab切换功能
+         $('#game').on('click',function () {
+            $(this).addClass('active').siblings('.wallpaper').removeClass('active1');
+            $('#content1').show().next().hide();
+         });
+         //  tab切换功能
+         $('#wallpaper').on('click',function () {
+            $(this).addClass('active1').siblings('.game').removeClass('active');
+            $('#content2').show().prev().hide();
+         });
+        //  鼠标提示功能
+         $('.tip').css('zIndex',1);
+         $('.content').on('mousemove',function () {
+             $('.tip').fadeOut(2000);
+         });
+        //  图片模态框
+        //遍历为每个图片添加点击事件进行操作
+         var $armimg=$('.armimg');
+         for(var i=0;i<$armimg.length;i++){
+            $($('.bigPic')[i]).on('click',function () {
+                //获取点击当前a标签下的img
+                var arm=$(this).children('img');
+                var title=$(this).children('.mask').children('p');
+                 $('#modelBox').fadeIn(1000);
+                 //获取点击的img 标签中alt的属性对模态框中的img src进行修改
+                 $('#modelPic').attr('src',arm.attr('alt'));
+                 //获取每张图片的文字给模态图片的标题
+                 if(title.text()=== ''){
+                     $('.title>p').text('逆水寒');
+                 }else{
+                     $('.title>p').text(title.text());
+                 }          
+             }) 
+         }
+        //点击关闭按钮功能
+         $('.modelClick').on('click',function (e) {
+             $('#modelBox').fadeOut(1000);
+             //阻止事件的冒泡防止出现父元素一直处于Show（）的状态
+             e.stopPropagation();
+         });
+     })
+    </script>
+</head>
+<body> 
+    <!-- logo区域 -->
+    <div class="logo">
+        <img src="./images/logo.png" alt="">
+        <div class="line"></div>
+    </div>
+    <!-- Tab切换按钮 -->
+    <div class="switch">
+       <a href="javascript:;" class="game active" id="game">
+           <span class="galine"></span>
+       </a>
+       <a href="javascript:;" class="wallpaper" id="wallpaper">
+           <span class="waline"></span>
+       </a>
+    </div>
+    <!-- 图片画廊 -->
+    <div class="content swiper-container" id="content1">
+        <ul class="grally swiper-wrapper" id="grallyone">
+            <li class="item swiper-slide">
+                <!-- 第一个 -->
+                <a href="javascript:;" class="one bigPic">
+                    <img class="armimg" src="./images/arm1.jpg" alt="./images/big1.jpg">
+                    <div class="mask">
+                        <i></i>
+                        <p>血河：百炼·七尺烈</p>
+                    </div>
+                    <div class="border">
+                        <div class="common top"></div>
+                        <div class="common left"></div>
+                        <div class="common bottom"></div>
+                        <div class="common right"></div>
+                    </div>
+                </a>
+                <!-- 第二个 -->
+               <a href="javascript:;" style="margin-top:8px;" class="two bigPic">
+                    <img class="armimg" src="./images/arm2.jpg" alt="./images/big2.jpg">
+                    <div class="mask">
+                        <i></i>
+                        <p>戚少商武器</p>
+                    </div>
+                    <div class="border">
+                        <div class="common top"></div>
+                        <div class="common left"></div>
+                        <div class="common bottom"></div>
+                        <div class="common right"></div>
+                    </div>
+                </a>
+            </li>
+            <li class="item swiper-slide">
+                    <!-- 第一个 -->
+                    <a href="javascript:;" class="one bigPic">
+                        <img class="armimg" src="./images/arm3.jpg" alt="./images/big3.jpg">
+                        <div class="mask">
+                            <i></i>
+                            <p>神相：张文收·景云河清琴</p>
+                        </div>
+                        <div class="border">
+                            <div class="common top"></div>
+                            <div class="common left"></div>
+                            <div class="common bottom"></div>
+                            <div class="common right"></div>
+                        </div>
+                     </a>
+            </li>
+            <li class="item swiper-slide">
+                    <!-- 第一个 -->
+                    <a href="javascript:;" class="one bigPic">
+                        <img class="armimg" src="./images/arm4.jpg" alt="./images/big4.jpg">
+                        <div class="mask">
+                            <i></i>
+                            <p>九灵：葛洪·玉川抱朴灯</p>
+                        </div>
+                        <div class="border">
+                            <div class="common top"></div>
+                            <div class="common left"></div>
+                            <div class="common bottom"></div>
+                            <div class="common right"></div>
+                        </div>
+                    </a>
+                    <!-- 第二个 -->
+                   <a href="javascript:;" style="margin-top:8px;" class="two bigPic">
+                        <img class="armimg" src="./images/arm5.jpg" alt="./images/big5.jpg">
+                        <div class="mask">
+                            <i></i>
+                            <p>碎梦：黄歇·乱星刀</p>
+                        </div>
+                        <div class="border">
+                            <div class="common top"></div>
+                            <div class="common left"></div>
+                            <div class="common bottom"></div>
+                            <div class="common right"></div>
+                        </div>
+                    </a>
+            </li>
+            <li class="item swiper-slide">
+                <!-- 第一个 -->
+                <a href="javascript:;" class="one bigPic">
+                    <img class="armimg" src="./images/arm6.jpg" alt="./images/big6.jpg">
+                    <div class="mask">
+                        <i></i>
+                        <p>铁衣：宇文泰·刀开明月震</p>
+                    </div>
+                    <div class="border">
+                        <div class="common top"></div>
+                        <div class="common left"></div>
+                        <div class="common bottom"></div>
+                        <div class="common right"></div>
+                    </div>
+                </a>
+                <!-- 第二个 -->
+               <a href="javascript:;" style="margin-top:8px;" class="two bigPic">
+                    <img class="armimg" src="./images/arm7.jpg" alt="./images/big7.jpg">
+                    <div class="mask">
+                        <i></i>
+                        <p>九灵：茅盈·碧天夜云灯</p>
+                    </div>
+                    <div class="border">
+                        <div class="common top"></div>
+                        <div class="common left"></div>
+                        <div class="common bottom"></div>
+                        <div class="common right"></div>
+                    </div>
+                </a>
+            </li>
+            <li class="item swiper-slide">
+                    <!-- 第一个 -->
+                    <a href="javascript:;" class="one bigPic">
+                        <img class="armimg" src="./images/arm8.jpg" alt="./images/big8.jpg">
+                        <div class="mask">
+                            <i></i>
+                            <p>碎梦：祝融夫人·胡星曜芒刀</p>
+                        </div>
+                        <div class="border">
+                            <div class="common top"></div>
+                            <div class="common left"></div>
+                            <div class="common bottom"></div>
+                            <div class="common right"></div>
+                        </div>
+                    </a>
+            </li>
+            <li class="item swiper-slide">
+                    <!-- 第一个 -->
+                    <a href="javascript:;" class="one bigPic">
+                        <img class="armimg" src="./images/arm9.jpg" alt="./images/big9.jpg">
+                        <div class="mask">
+                            <i></i>
+                            <p>九灵：王元姬·烟景霏迷灯</p>
+                        </div>
+                        <div class="border">
+                            <div class="common top"></div>
+                            <div class="common left"></div>
+                            <div class="common bottom"></div>
+                            <div class="common right"></div>
+                        </div>
+                    </a>
+                    <!-- 第二个 -->
+                   <a href="javascript:;" style="margin-top:8px;" class="two bigPic">
+                        <img class="armimg" src="./images/arm10.jpg" alt="./images/big10.jpg">
+                        <div class="mask">
+                            <i></i>
+                            <p>血河：尉迟恭·八宝驼龙枪</p>
+                        </div>
+                        <div class="border">
+                            <div class="common top"></div>
+                            <div class="common left"></div>
+                            <div class="common bottom"></div>
+                            <div class="common right"></div>
+                        </div>
+                    </a>
+            </li>
+            <li class="item swiper-slide">
+                    <!-- 第一个 -->
+                    <a href="javascript:;" class="one bigPic">
+                        <img class="armimg" src="./images/arm11.jpg" alt="./images/big11.jpg">
+                        <div class="mask">
+                            <i></i>
+                            <p>碎梦：黄歇·乱星刀</p>
+                        </div>
+                        <div class="border">
+                            <div class="common top"></div>
+                            <div class="common left"></div>
+                            <div class="common bottom"></div>
+                            <div class="common right"></div>
+                        </div>
+                    </a>
+                    <!-- 第二个 -->
+                   <a href="javascript:;" style="margin-top:8px;" class="two bigPic">
+                        <img class="armimg" src="./images/arm12.jpg" alt="./images/big12.jpg">
+                        <div class="mask">
+                            <i></i>
+                            <p>铁衣：邓羌.万人敌震</p>
+                        </div>
+                        <div class="border">
+                            <div class="common top"></div>
+                            <div class="common left"></div>
+                            <div class="common bottom"></div>
+                            <div class="common right"></div>
+                        </div>
+                    </a>
+            </li>
+            <li class="item swiper-slide">
+                    <!-- 第一个 -->
+                    <a href="javascript:;" class="one bigPic">
+                        <img  class="armimg" src="./images/arm13.jpg" alt="./images/big13.jpg">
+                        <div class="mask">
+                            <i></i>
+                            <p>九灵：麻姑·虚寂冲应灯</p>
+                        </div>
+                        <div class="border">
+                            <div class="common top"></div>
+                            <div class="common left"></div>
+                            <div class="common bottom"></div>
+                            <div class="common right"></div>
+                        </div>
+                    </a>
+            </li> 
+        </ul>
+    </div>
+    <div class="content swiper-container" id="content2" style="display: none">
+         <ul class="grally2 swiper-wrapper" id="grallytwo">
+            <li class="item swiper-slide">
+                <!-- 第一个 -->
+                <a href="javascript:;" class="one bigPic">
+                    <img class="armimg" src="./images/hero1.jpg" alt="./images/h1.jpg">
+                    <div class="mask">
+                        <i></i>
+                        <p>血河：百炼·七尺烈</p>
+                    </div>
+                    <div class="border">
+                        <div class="common top"></div>
+                        <div class="common left"></div>
+                        <div class="common bottom"></div>
+                        <div class="common right"></div>
+                    </div>
+                </a>      
+            </li>
+            <li class="item swiper-slide">
+                    <!-- 第一个 -->
+                    <a href="javascript:;" class="one bigPic">
+                        <img class="armimg" src="./images/hero2.jpg" alt="./images/h2.jpg">
+                        <div class="mask">
+                            <i></i>
+                            <p>神相：张文收·景云河清琴</p>
+                        </div>
+                        <div class="border">
+                            <div class="common top"></div>
+                            <div class="common left"></div>
+                            <div class="common bottom"></div>
+                            <div class="common right"></div>
+                        </div>
+                     </a>
+                     <a href="javascript:;" style="margin-top:8px;" class="two bigPic">
+                        <img class="armimg" src="./images/hero3.jpg" alt="./images/h3.jpg">
+                        <div class="mask">
+                            <i></i>
+                            <p>戚少商武器</p>
+                        </div>
+                        <div class="border">
+                            <div class="common top"></div>
+                            <div class="common left"></div>
+                            <div class="common bottom"></div>
+                            <div class="common right"></div>
+                        </div>
+                    </a>
+            </li>
+            <li class="item swiper-slide">
+                    <!-- 第一个 -->
+                    <a href="javascript:;" class="one bigPic">
+                        <img class="armimg" src="./images/hero4.jpg" alt="./images/h4.jpg">
+                        <div class="mask">
+                            <i></i>
+                            <p>九灵：葛洪·玉川抱朴灯</p>
+                        </div>
+                        <div class="border">
+                            <div class="common top"></div>
+                            <div class="common left"></div>
+                            <div class="common bottom"></div>
+                            <div class="common right"></div>
+                        </div>
+                    </a>
+            </li>
+            <li class="item swiper-slide">
+                <!-- 第一个 -->
+                <a href="javascript:;" class="one bigPic">
+                    <img class="armimg" src="./images/hero5.jpg" alt="./images/h5.jpg" width="480" height="200">
+                    <div class="mask">
+                        <i></i>
+                        <p></p>
+                    </div>
+                    <div class="border">
+                        <div class="common top"></div>
+                        <div class="common left"></div>
+                        <div class="common bottom"></div>
+                        <div class="common right"></div>
+                    </div>
+                </a>
+                <!-- 第二个 -->
+               <a href="javascript:;" style="margin-top:8px;" class="two bigPic">
+                    <img class="armimg" src="./images/hero6.jpg" alt="./images/h6.jpg" width="480" height="300">
+                    <div class="mask">
+                        <i></i>
+                        <p></p>
+                    </div>
+                    <div class="border">
+                        <div class="common top"></div>
+                        <div class="common left"></div>
+                        <div class="common bottom"></div>
+                        <div class="common right"></div>
+                    </div>
+                </a>
+            </li>
+            <li class="item swiper-slide">
+                    <!-- 第一个 -->
+                    <a href="javascript:;" class="one bigPic">
+                        <img class="armimg" src="./images/hero7.jpg" alt="./images/h7.jpg">
+                        <div class="mask">
+                            <i></i>
+                            <p></p>
+                        </div>
+                        <div class="border">
+                            <div class="common top"></div>
+                            <div class="common left"></div>
+                            <div class="common bottom"></div>
+                            <div class="common right"></div>
+                        </div>
+                    </a>
+            </li>
+            <li class="item swiper-slide">
+                    <!-- 第一个 -->
+                    <a href="javascript:;" class="one bigPic">
+                        <img class="armimg" src="./images/hero8.jpg" alt="./images/h8.jpg">
+                        <div class="mask">
+                            <i></i>
+                            <p></p>
+                        </div>
+                        <div class="border">
+                            <div class="common top"></div>
+                            <div class="common left"></div>
+                            <div class="common bottom"></div>
+                            <div class="common right"></div>
+                        </div>
+                    </a>
+                    <!-- 第二个 -->
+                   <a href="javascript:;" style="margin-top:8px;" class="two bigPic">
+                        <img class="armimg" src="./images/hero9.jpg" alt="./images/h9.jpg">
+                        <div class="mask">
+                            <i></i>
+                            <p></p>
+                        </div>
+                        <div class="border">
+                            <div class="common top"></div>
+                            <div class="common left"></div>
+                            <div class="common bottom"></div>
+                            <div class="common right"></div>
+                        </div>
+                    </a>
+            </li>
+            <li class="item swiper-slide">
+                    <!-- 第一个 -->
+                    <a href="javascript:;" class="one bigPic">
+                        <img class="armimg" src="./images/hero10.jpg" alt="./images/h10.jpg">
+                        <div class="mask">
+                            <i></i>
+                            <p></p>
+                        </div>
+                        <div class="border">
+                            <div class="common top"></div>
+                            <div class="common left"></div>
+                            <div class="common bottom"></div>
+                            <div class="common right"></div>
+                        </div>
+                    </a>
+            </li>
+            <li class="item swiper-slide">
+                    <!-- 第一个 -->
+                    <a href="javascript:;" class="one bigPic">
+                        <img class="armimg" src="./images/hero11.jpg" alt="./images/h11.jpg">
+                        <div class="mask">
+                            <i></i>
+                            <p></p>
+                        </div>
+                        <div class="border">
+                            <div class="common top"></div>
+                            <div class="common left"></div>
+                            <div class="common bottom"></div>
+                            <div class="common right"></div>
+                        </div>
+                    </a>
+                               <!-- 第二个 -->
+                    <a href="javascript:;" style="margin-top:8px;" class="two bigPic">
+                        <img class="armimg" src="./images/hero13.jpg" alt="./images/h12.jpg">
+                        <div class="mask">
+                            <i></i>
+                            <p></p>
+                        </div>
+                        <div class="border">
+                        <div class="common top"></div>
+                        <div class="common left"></div>
+                        <div class="common bottom"></div>
+                        <div class="common right"></div>
+                        </div>
+                    </a>
+            </li>
+        </ul>
+    </div>
+    <!-- 点击查看效果 -->
+    <div class="tip">
+        <i></i>
+    </div>
+    <!-- 图片模态框 -->
+    <div class="modelBox" id="modelBox">
+        <img  class="modelPic" id="modelPic" src="">
+        <div class="title">
+            <p>逆水寒</p>
+        </div>
+        <div class="modelClick">
+            <div class="close">
+            <img src="./images/close.png" alt="">
+            </div>
+        </div>
+    </div>
+    <!-- 导航栏 -->
+    <div class="g-ban">
+        <div>
+        <a class="a0" href="">
+            <span></span>
+        </a>
+        </div>
+        <div>
+        <a class="a1" href="">
+            <span></span>
+        </a>
+        </div>
+        <div>
+        <a class="a2" href="">
+            <span></span>
+        </a>
+        </div>
+        <div>
+        <a class="a3" href="">
+            <span></span>
+        </a>
+        </div>
+        <div>
+        <a class="a4" href="">
+            <span></span>
+        </a>
+        </div>
+        <div>
+        <a class="a5" href="">
+            <span></span>
+        </a>
+        </div>
+        <div>
+        <a class="a6" href="">
+            <span></span>
+        </a>
+        </div>
+        <div>
+        <a class="a7" href="">
+            <span></span>
+        </a>
+        </div>
+        <div>
+        <a class="a8" href="">
+            <span></span>
+        </a>
+        </div>
+        <div>
+        <a class="a9" href="">
+            <span></span>
+        </a>
+        </div>
+        <div>
+        <a class="aq" href="">
+            <span></span>
+        </a>
+        </div>
+        <div>
+        <a class="aw" href="">
+            <span></span>
+        </a>
+        </div>
+    </div>       
+    <!-- 页脚 -->
+    <div class="g-foot">
+        <div class="foot-o">
+            <img src="images/foot.png" alt="">
+        </div>
+        <div class="foot-t">
+            <p>公司简介 - 客户服务 - 相关法律 - 网易游戏 - 联系我们 - 商务合作 - 加入我们</p>
+            <p class="pp">网易公司版权所有 @1997-2018 <span>点击查看家长监护工程></span></p>
+        </div>
+        <div class="foot-w">
+            <p>本游戏适合16岁以上的玩家进入。</p>
+            <p>积极健康的游戏心态是健康游戏的开端，本游戏故事情节设置紧凑，请你合理控制游戏时间，避免沉溺游戏影响生活，注意自我保护，防范网络陷阱。</p>
+            <p>《网络文化经营许可证》 浙网文[2016]0155-055号 文网游备字 [2017]  C-RPG 0042号</p>
+        </div> 
+    </div>
+    <!-- 导航栏特效 -->
+    <script>
+        var $v = $('.g-ban>div');
+        var arr = [-8, -94, -137, -180, -223, -266, -309, -352, -395, -438, -481, -524, -567, -610, -653, -696, -739, -782];
+        $v.mouseenter(function () {
+            $(this).stop().animate({
+                paddingTop: 14
+            }, 200);
+            var $s = $(this).children().children();
+            var i = 0;
+            clearInterval(timeone);
+            var timeone = setInterval(function () {
+                if (arr[i] <= -782) {
+                    $s.css('backgroundPositionY', -782);
+                    clearInterval(timeone);
+                } else {
+                    $s.css('backgroundPositionY', arr[i]);
+                }
+                // arr.push(arr.shift());
+                i++;
+            }, 10);
+        });
+        var nArr = arr.reverse();
+        $v.mouseleave(function () {
+            $(this).stop().animate({
+                paddingTop: 28
+            }, 200);
+            var $s = $(this).children().children();
+            var i = 0;
+            clearInterval(timetwo);
+            var timetwo = setInterval(function () {
+                if (nArr[i] >= -8) {
+                    $s.css('backgroundPositionY', -8);
+                    clearInterval(timetwo);
+                } else {
+                    $s.css('backgroundPositionY', nArr[i]);
+                }
+                // $s.css('backgroundPositionY', nArr[i]);
+                // arr.push(arr.shift());
+                i++;
+            }, 10);
+        });
+
+    </script>
+    <script src="./js/swiper.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper('.swiper-container', {
+        // slidesPerView:'auto',
+        slidesPerView: 'auto',
+        freeMode: true,
+        // freeMode: true,
+        // freeModeMomentum : false,
+      });
+    </script>
+</body>
+</html>
